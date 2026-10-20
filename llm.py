@@ -1,5 +1,6 @@
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
+from logger import log_step
 
 prompt = ChatPromptTemplate.from_messages([
     ("system",
@@ -23,6 +24,7 @@ prompt = ChatPromptTemplate.from_messages([
         ("human", "Reference material:\n{context}\n\nQuestion: {question}"),
     ])
 
+@log_step
 def answer_question(vector_store,question):
     docs = vector_store.similarity_search(question, k=4)
     context = "\n\n".join(d.page_content for d in docs)

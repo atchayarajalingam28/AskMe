@@ -1,5 +1,7 @@
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+from logger import log_step
 
+@log_step
 def split_documents(documents):
     header_splitter = MarkdownHeaderTextSplitter(
         headers_to_split_on=[
