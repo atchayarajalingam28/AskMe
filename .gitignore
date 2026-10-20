@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Vector store (rebuild it from your .md files)
+chroma_db/
+.chroma/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
