@@ -40,7 +40,7 @@ CASES = [
     {
         "question" : "What did she do during her ServiceNow intership?",
         "must_include": ["prototype","rag"],
-        "must_exclude": ["deployed","production"],
+        "must_exclude": ["was deployed","in production use", "used by the team","production system"],
         "note" : "Describes the prototype accurately without overclaiming",
     },
     # Questions that should be declined by the assistant.

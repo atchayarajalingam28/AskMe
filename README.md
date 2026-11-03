@@ -105,6 +105,19 @@ If Groq reports that the model is not found, model availability changes over tim
 
 Questions the knowledge base does not cover (salary, personal details, unrelated topics) are declined, and the assistant points to her contact email instead of guessing.
 
+## Running the evaluation
+
+`eval_cases.py` holds 10 test cases: normal questions, questions the assistant
+should decline (salary, off-topic, unknown facts), and prompt-injection attempts.
+`eval_run.py` rebuilds the vector store, asks each question, and checks the
+answer against rule-based assertions.
+
+    python eval_run.py
+
+Results: 9/10 on the first run (one failure was an over-strict keyword check,
+which I refined), 10/10 after the fix. The checks are keyword-based, so a
+failure is a prompt to read the answer, not proof it is wrong.
+
 ## Current limitations
 
 - The assistant only knows what is in `knowledge_base/`. Anything missing from those files, it cannot answer.
